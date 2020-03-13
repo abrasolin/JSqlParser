@@ -43,7 +43,8 @@ public class DeleteDeParser {
                     .map(t -> t.getFullyQualifiedName())
                     .collect(joining(", ", " " , "")));
         }
-        buffer.append(" FROM ").append(delete.getTable().toString());
+        //Retirada do FROM pois as versoes mais nova do Oracle não são obrigatorios
+        //buffer.append(" FROM ").append(delete.getTable().toString()); 
 
         if (delete.getJoins() != null) {
             for (Join join : delete.getJoins()) {
